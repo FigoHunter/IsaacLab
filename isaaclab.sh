@@ -228,6 +228,8 @@ while [[ $# -gt 0 ]]; do
             # install the python packages in IsaacLab/source directory
             echo "[INFO] Installing extensions inside the Isaac Lab repository..."
             python_exe=$(extract_python_exe)
+            ${python_exe} -m pip config set global.extra-index-url "https://pypi.tuna.tsinghua.edu.cn/simple"
+
             # recursively look into directories and install them
             # this does not check dependencies between extensions
             export -f extract_python_exe
